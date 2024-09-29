@@ -1,40 +1,40 @@
 import express from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import cookieParser from 'cookie-parser';
+import { Server } from 'socket.io';
+import http from 'http';
 import userRoutes from './routes/userRoutes.js';
-import cors from 'cors'
+
 dotenv.config();
-
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
 
-// Middleware
+app.use(cors());
 app.use(express.json());
-app.use(cors())
-// MongoDB connection
-const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log('MongoDB connected');
-    } catch (err) {
-        console.error(`Error: ${err.message}`);
-        process.exit(1); // Exit the process if there's an error
-    }
-};
+app.use(cookieParser());
 
-// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('MongoDB connected')).catch(err => console.log(err));
+
 app.use('/api/users', userRoutes);
 
-// Start the server
+io.on('connection', (socket) => {
+  console.log('New socket connection');
+  socket.on('updateScore', (data) => {
+    io.emit('liveScoreUpdate', data);
+  });
+});
 
-// PORT = 9001
-// MONGO_URI = mongodb+srv://nnm22ad051:4YFnopxj35dMffRp@cricket.472ze.mongodb.net/?retryWrites=true&w=majority&appName=cricket
-app.listen(process.env.PORT , () => {
-    connectDB();
-    console.log(`Server running on port ${process.env.PORT || 3000}`);
-
-}).on('error', (err) => {
-    console.error(`Error: ${err.message}`);
+server.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
 });
