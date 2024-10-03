@@ -28,6 +28,8 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use('/api/users', userRoutes);
 
+
+
 io.on('connection', (socket) => {
   console.log('New socket connection');
   socket.on('updateScore', (data) => {

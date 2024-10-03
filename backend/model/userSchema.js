@@ -17,8 +17,30 @@ const userSchema = new mongoose.Schema({
   },
   role:{
     type:String,
-    enum:['user','admin'], default: 'user'
+    default: 'user',
   },
+  total_matches:{
+    type:Number,
+    default:0,
+  },
+  total_runs:{
+    type:Number,
+    default:0,
+  },
+  total_ball_faced:{
+    type:Number,
+    default:0,
+  },
+  total_wickets:{
+    type:Number,
+    default:0,
+  },
+  player_type:{
+    type:String,
+  
+  },
+
+
   // ... other fields ...
 
 });
