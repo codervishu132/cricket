@@ -1,0 +1,43 @@
+.navbar {
+  background-color: none;
+  padding: 1rem;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end; /* Aligns items to the right */
+  width: 100%; /* Ensures the list takes the full width of the navbar */
+}
+
+.navItem {
+  margin-left: 1.5rem;
+}
+
+.navItem a {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navItem a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  /* Adjustments for mobile devices */
+  .navList {
+    
+    flex-direction: row;
+    padding: 6px; /* Stacks items vertically */
+    align-items: flex-start; /* Aligns items to the left */
+    padding: 0;
+  }
+
+  .navItem {
+    font-size: 15px;
+    margin: 0.5rem 0.25rem; /* Adds vertical spacing between items */
+  }
+}

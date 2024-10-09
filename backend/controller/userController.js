@@ -8,7 +8,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Register function
-export const register = async (req, res) => {
+export const 
+register = async (req, res) => {
   const { name, email, password, role } = req.body;
 
   try {

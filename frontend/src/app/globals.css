@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #D2D2D2;
+  background-image:
+    repeating-linear-gradient(
+      to right, transparent 0 100px,
+      #25283b22 100px 101px
+    ),
+    repeating-linear-gradient(
+      to bottom, transparent 0 100px,
+      #25283b22 100px 101px
+    );
+}
+.navbar {
+  background-color: none;
+  padding: 1rem;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-end; /* Aligns items to the right */
+  width: 100%; /* Ensures the list takes the full width of the navbar */
+}
+
+.navItem {
+  margin-left: 1.5rem;
+}
+
+.navItem a {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.navItem a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  /* Adjustments for mobile devices */
+  .navList {
+    
+    flex-direction: row;
+    padding: 6px; /* Stacks items vertically */
+    align-items: flex-start; /* Aligns items to the left */
+    padding: 0;
+  }
+
+  .navItem {
+    font-size: 15px;
+    margin: 0.5rem 0.25rem; /* Adds vertical spacing between items */
+  }
+}

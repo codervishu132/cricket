@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap'); /*button css*/
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+  box-sizing: border-box;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 320px; /* Default size */
+  height: 320px; /* Default size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container span {
+  position: absolute;
+  left: 0;
+  width: 30px; /* Default width */
+  height: 6px; /* Default height */
+  background: #2c4766;
+  border-radius: 8px;
+  transform-origin: 160px; /* Default transform origin */
+  transform: scale(2) rotate(calc(var(--i) * (360deg / 50))); /* Default scale */
+  animation: animateBlink 3s linear infinite;
+  animation-delay: calc(var(--i) * (3s / 50));
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for mobile devices */
+    .container {
+      
+    }
+  
+    .container span {
+      width: 0px; /* Increased width for mobile */
+      height: 0px; /* Increased height for mobile */
+      transform-origin: none; /* Adjusted for larger container */
+      transform: none; /* Increased scale for mobile */
+    }
+  
+    .login-box {
+      width: 320px; /* Smaller width for the login box on mobile */
+      padding: 0 20px; /* Adjust padding for better fit on small screens */
+    }
+  
+    h2 {
+      font-size: 1.5em; /* Slightly smaller font size for mobile */
+    }
+  
+    .input-box input {
+      height: 40px; /* Reduced height of input boxes for mobile */
+      font-size: 0.9em; /* Slightly smaller font size */
+    }
+  
+    .btn {
+      height: 40px; /* Reduced button height for mobile */
+      font-size: 0.9em; /* Smaller font size for the button */
+    }
+  
+    .forgot-password a,
+    .signup-link a {
+      font-size: 0.85em; /* Smaller font size for links */
+    }
+  }
+  
+
+@keyframes animateBlink {
+  0% {
+    background: #0ef;
+  }
+
+  25% {
+    background: #2c4766;
+  }
+}
+
+.login-box {
+  position: absolute;
+  width: 500px;
+}
+
+.login-box form {
+  width: 100%;
+  padding: 0 50px;
+}
+
+h2 {
+  font-size: 2em;
+  color: #0ef;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  margin: 25px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #2c4766;
+  outline: none;
+  border-radius: 40px;
+  font-size: 1em;
+  color: #fff;
+  padding: 0 20px;
+  transition: 0.5s;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: #0ef;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #1d1b1b;
+  pointer-events: none;
+  transition: 0.5s ease;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: 1px;
+  font-size: 0.8em;
+  background-color: #1f293a;
+  border-radius: 5px;
+  padding: 0 6px;
+  color: #0ef;
+}
+
+.forgot-password {
+  margin: -15px 0 10px;
+  text-align: center;
+}
+
+.forgot-password a {
+  font-size: 0.85em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  border-radius: 45px;
+  background: #0ef;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  color: #1f293a;
+  font-weight: 600;
+}
+
+.signup-link {
+  margin: 20px 0 10px;
+  text-align: center;
+}
+
+.signup-link a {
+  font-size: 1em;
+  color: #0ef;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+:root {
+  --clr-neon: rgb(48, 216, 228);   /*14a1ff*/
+  --clr-bg: #000000;
+  --font-size: 3rem;
+}
+
+/* Reset and base styles */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: none;
+  color: var(--clr-neon);
+  font-family: "Balsamiq Sans", sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+}
+
+.login-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.input-box {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #0f0f0f;
+  color: #0f0f0f;
+  font-size: 1rem;
+}
+
+.input-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: var(--clr-neon);
+  font-size: 0.75rem;
+}
+
+.forgot-password {
+  margin-bottom: 1rem;
+}
+
+.forgot-password a {
+  color: var(--clr-neon);
+  text-decoration: none;
+}
+
+.signup-link a {
+  color: var(--clr-neon);
+  text-decoration: none;
+}
+
+/* Neon button styles */
+.neon {
+  margin-top: 20px; /* Adjust to fit better in the form */
+  font-size: 1.5em;
+  align-items: center;
+  justify-content: center;
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  border: var(--clr-neon) 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  text-shadow: 0 0 .20em #FFF7, 0 0 .30em var(--clr-neon);
+  box-shadow: inset 0 0 .5em var(--clr-neon), 0 0 .5em var(--clr-neon);
+}
+
+/* .btn {
+  width: 100%;
+  height: 45px;
+  border-radius: 45px;
+  background: #0ef;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  color: #1f293a;
+  font-weight: 600;
+} */
+
+.neon::before {
+  content: "";
+  position: absolute;
+  top: 140%;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  border-radius: 45px;
+  cursor: pointer;
+  background: var(--clr-neon);
+  transform: perspective(0.2em) rotateX(10deg) scale(1.3, 0.40);
+  filter: blur(0.5em);
+  opacity: 0.6;
+  pointer-events: none;
+  transition: opacity 100ms linear;
+}
+
+.neon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--clr-neon);
+  box-shadow: 0 0 2em var(--clr-neon);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 100ms linear;
+}
+
+.neon:hover::after {
+  opacity: 10;
+}
+
+.neon:hover,
+.neon:focus {
+  color: white;
+}
+
+.neon:hover::before {
+  opacity: 0.8;
+}
